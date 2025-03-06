@@ -1,16 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
+<html class="js full-height" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="">
+    <link rel="canonical" href="/">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    <title>Shop Name</title>
+    <meta name="description" content="Shop description">
+    
+    <link rel="stylesheet" href="css/section-password.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/component-list-social.css">
+    
+    <style>
+      :root {
+        --font-body-family: Arial, sans-serif;
+        --font-heading-family: Georgia, serif;
+        --page-width: 120rem;
+        --color-background: 255,255,255;
+        --color-foreground: 0,0,0;
+        --color-button: 0,0,0;
+        --color-button-text: 255,255,255;
+        --spacing-sections-desktop: 40px;
+        --grid-desktop-vertical-spacing: 20px;
+        --grid-desktop-horizontal-spacing: 20px;
+        --buttons-radius: 8px;
+        --inputs-radius: 4px;
+      }
+      
+      body {
+        color: rgba(var(--color-foreground), 0.75);
+        background-color: rgb(var(--color-background));
+        font-family: var(--font-body-family);
+      }
+    </style>
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <h1>Hello Hobin</h1>
-        <script src="script.js" async defer></script>
-    </body>
+    <script src="js/global.js" defer></script>
+    <script src="js/details-modal.js" defer></script>
+    <script src="js/password-modal.js" defer></script>
+  </head>
+
+  <body class="password gradient">
+    <a class="skip-to-content-link button visually-hidden" href="#MainContent">
+      Skip to content
+    </a>
+
+    <header>
+      <!-- Header content -->
+    </header>
+
+    <main id="MainContent" class="password-main">
+      <!-- Main content -->
+    </main>
+    
+    <footer>
+      <!-- Footer content -->
+    </footer>
+
+    <ul hidden>
+      <li id="a11y-new-window-message">Opens in a new window</li>
+    </ul>
+  </body>
 </html>
