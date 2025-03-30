@@ -85,3 +85,88 @@ body {
     color: #000;
     text-transform: uppercase;
 }
+
+.products-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    padding: 50px 20px;
+    z-index: 1;
+    min-height: calc(100vh - 50px); /* Subtract marquee height */
+    margin-top: 40px; /* Add margin to account for marquee */
+}
+
+.product-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
+.hover-box {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: calc(100% - 50px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.hover-box:hover {
+    opacity: 1;
+}
+
+.hover-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: -1;
+}
+
+.hover-text {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1;
+}
+
+.hover-text div {
+    color: #000;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: -0.03rem;
+    background: white;
+    padding: 10px 20px;
+    line-height: 1;
+}
+
+.product-item img {
+    max-width: 500px;
+    height: auto;
+    object-fit: contain;
+}
+
+.product-caption {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.03rem;
+    color: #000;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+}
