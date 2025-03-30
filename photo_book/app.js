@@ -1,4 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Audio Control Setup
+    const audio = document.getElementById('bgMusic');
+    const audioControl = document.getElementById('audioControl');
+    
+    // Start playing immediately
+    audio.play().catch(error => {
+        console.log('Auto-play was prevented. Please click play to start the music.');
+    });
+
+    audioControl.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent triggering the image addition
+        if (audio.paused) {
+            audio.play();
+            audioControl.textContent = '[PAUSE]';
+        } else {
+            audio.pause();
+            audioControl.textContent = '[PLAY]';
+        }
+    });
+
     const imageUrls = [
         'https://cdn.shopify.com/s/files/1/0727/6645/6022/files/photobook5.png?v=1743054119',
         'https://cdn.shopify.com/s/files/1/0727/6645/6022/files/photobook1.png?v=1743054333',
