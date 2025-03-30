@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const audio = document.getElementById('bgMusic');
     const audioControl = document.getElementById('audioControl');
     
-    // Start playing immediately
+    // Reset audio to start and play
+    audio.currentTime = 0;
     audio.play().catch(error => {
         console.log('Auto-play was prevented. Please click play to start the music.');
     });
@@ -11,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     audioControl.addEventListener('click', (e) => {
         e.stopPropagation(); // Prevent triggering the image addition
         if (audio.paused) {
+            audio.currentTime = 0; // Reset to start when playing
             audio.play();
             audioControl.textContent = '[PAUSE]';
         } else {
