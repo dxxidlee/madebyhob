@@ -25,8 +25,16 @@ document.addEventListener('DOMContentLoaded', () => {
         'https://cdn.shopify.com/s/files/1/0727/6645/6022/files/photobook3.png?v=1743054333',
         'https://cdn.shopify.com/s/files/1/0727/6645/6022/files/photobook2.png?v=1743054333',
         'https://cdn.shopify.com/s/files/1/0727/6645/6022/files/photobook4.png?v=1743054333',
-        'https://cdn.shopify.com/s/files/1/0727/6645/6022/files/photobook6.png?v=1743054334'
+        'https://cdn.shopify.com/s/files/1/0727/6645/6022/files/photobook6.png?v=1743054334',
+        'https://cdn.shopify.com/s/files/1/0727/6645/6022/files/photo_book_b_w_4.jpg?v=1743311576',
+        'https://cdn.shopify.com/s/files/1/0727/6645/6022/files/photo_book_b_w_3.jpg?v=1743311576',
+        'https://cdn.shopify.com/s/files/1/0727/6645/6022/files/photo_book_b_w_1.jpg?v=1743311576',
+        'https://cdn.shopify.com/s/files/1/0727/6645/6022/files/photo_book_b_w_2.jpg?v=1743311576',
+        'https://cdn.shopify.com/s/files/1/0727/6645/6022/files/photo_book_b_w.jpg?v=1743311576'
     ];
+
+    // Track which images have been shown
+    let shownImages = new Set();
 
     const container = document.getElementById('random-images-container');
     const marqueeHeight = document.querySelector('.marquee-container').offsetHeight;
@@ -43,6 +51,26 @@ document.addEventListener('DOMContentLoaded', () => {
         return Math.floor(Math.random() * (300 - 100 + 1)) + 100;
     }
 
+    function getNextImageIndex() {
+        // If all images have been shown, reset the tracking
+        if (shownImages.size >= imageUrls.length) {
+            shownImages.clear();
+        }
+
+        // Get available indices (ones that haven't been shown yet)
+        const availableIndices = imageUrls
+            .map((_, index) => index)
+            .filter(index => !shownImages.has(index));
+
+        // Randomly select from available indices
+        const randomIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
+        
+        // Mark this image as shown
+        shownImages.add(randomIndex);
+        
+        return randomIndex;
+    }
+
     function addImage(event) {
         // Don't add image if clicking on navigation
         if (event && event.target.closest('.marquee-container')) {
@@ -50,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const img = document.createElement('img');
-        const index = Math.floor(Math.random() * imageUrls.length);
+        const index = getNextImageIndex();
         img.src = imageUrls[index];
         img.classList.add('clickable-image');
         img.style.opacity = '0';
