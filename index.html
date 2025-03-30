@@ -1,67 +1,74 @@
-<!doctype html>
-<html class="js full-height" lang="en">
+<!DOCTYPE html>
+<html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="theme-color" content="">
-    <link rel="canonical" href="/">
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
-    <title>Shop Name</title>
-    <meta name="description" content="Shop description">
-    
-    <link rel="stylesheet" href="css/section-password.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/component-list-social.css">
-    
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
     <style>
-      :root {
-        --font-body-family: Arial, sans-serif;
-        --font-heading-family: Georgia, serif;
-        --page-width: 120rem;
-        --color-background: 255,255,255;
-        --color-foreground: 0,0,0;
-        --color-button: 0,0,0;
-        --color-button-text: 255,255,255;
-        --spacing-sections-desktop: 40px;
-        --grid-desktop-vertical-spacing: 20px;
-        --grid-desktop-horizontal-spacing: 20px;
-        --buttons-radius: 8px;
-        --inputs-radius: 4px;
-      }
-      
       body {
-        color: rgba(var(--color-foreground), 0.75);
-        background-color: rgb(var(--color-background));
-        font-family: var(--font-body-family);
+          margin: 0;
+          overflow: hidden;
+          background-color: white;
       }
-    </style>
-
-    <script src="js/global.js" defer></script>
-    <script src="js/details-modal.js" defer></script>
-    <script src="js/password-modal.js" defer></script>
+      .image-container {
+          position: absolute;
+      }
+      img {
+          width: 100px;
+          height: auto;
+          position: absolute;
+          transition: opacity 0.5s ease;
+      }
+  </style>
   </head>
+  <body>
+    <script>
+      const imageUrls = [
+          'https://source.unsplash.com/random/100x100?sig=1',
+          'https://source.unsplash.com/random/100x100?sig=2',
+          'https://source.unsplash.com/random/100x100?sig=3',
+          'https://source.unsplash.com/random/100x100?sig=4',
+          'https://source.unsplash.com/random/100x100?sig=5'
+      ];
 
-  <body class="password gradient">
-    <a class="skip-to-content-link button visually-hidden" href="#MainContent">
-      Skip to content
-    </a>
+      function getRandomPosition() {
+          return {
+              x: Math.random() * (window.innerWidth - 100),
+              y: Math.random() * (window.innerHeight - 100)
+          };
+      }
 
-    <header>
-      <!-- Header content -->
-    </header>
+      function addImage() {
+          const img = document.createElement('img');
+          const index = Math.floor(Math.random() * imageUrls.length);
+          img.src = imageUrls[index];
+          img.classList.add('clickable-image');
+          img.style.opacity = '0';
 
-    <main id="MainContent" class="password-main">
-      <!-- Main content -->
-    </main>
-    
-    <footer>
-      <!-- Footer content -->
-    </footer>
+          const position = getRandomPosition();
+          img.style.left = `${position.x}px`;
+          img.style.top = `${position.y}px`;
+          img.style.opacity = '1';
+          
+          const link = document.createElement('a');
+          link.href = imageUrls[index];
+          link.target = '_blank';
+          link.classList.add('image-container');
+          link.appendChild(img);
+          
+          link.addEventListener('click', (event) => {
+              event.preventDefault();
+              addImage();
+          });
+          
+          document.body.appendChild(link);
+      }
 
-    <ul hidden>
-      <li id="a11y-new-window-message">Opens in a new window</li>
-    </ul>
-  </body>
+      document.body.addEventListener('click', addImage);
+  </script>
+</body>
 </html>
+
