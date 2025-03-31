@@ -11,6 +11,25 @@ body {
     position: relative;
     overflow-x: hidden;
     cursor: pointer;
+    overflow-y: hidden;
+}
+
+#scroll-lock {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding-top: 50px;
+}
+
+#scroll-target {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 50px;
 }
 
 .marquee-container {
@@ -21,7 +40,9 @@ body {
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid #000;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
     z-index: 10;
 }
 
@@ -29,6 +50,8 @@ body {
     font-size: 14px;
     font-weight: 600;
     letter-spacing: -0.03rem;
+    text-decoration: none;
+    color: #000;
 }
 
 .nav-items {
@@ -62,6 +85,7 @@ body {
     z-index: 0;
     width: 70%;
     pointer-events: none;
+    margin-top: 25px;
 }
 
 .repeating-logo {
@@ -179,4 +203,67 @@ body {
 
 .audio-control:hover {
     opacity: 0.7;
+}
+
+.scroll-button {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: none;
+    border: none;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: -0.03rem;
+    color: WHITE;
+    background-color: #000;
+    cursor: pointer;
+    padding: 5px 5px;
+    text-transform: uppercase;
+    z-index: 3;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+}
+
+.scroll-button:hover {
+    opacity: 0.7;
+}
+
+.scroll-up {
+    bottom: 750px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.scroll-up.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.scroll-button.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#scroll-target .centered-image {
+    position: relative;
+    transform: none;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#scroll-target .centered-image img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+#scroll-target .image-caption {
+    pointer-events: none;
 }

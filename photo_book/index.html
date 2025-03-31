@@ -13,7 +13,7 @@
             <source src="save-sum.mp3" type="audio/mpeg">
         </audio>
         <div class="marquee-container">
-            <div class="logo">madebyhob</div>
+            <a href="https://dxxidlee.github.io/madebyhob/home/index.html" class="logo">madebyhob</a>
             <div class="nav-items">
                 <button id="audioControl" class="audio-control">[PAUSE]</button>
                 <a href="https://dxxidlee.github.io/madebyhob/home/index.html" class="nav-item">[HOME]</a>
@@ -22,21 +22,34 @@
                 <a href="#" class="nav-item">[CART]</a>
             </div>
         </div>
-        <div class="logo-pattern">
-            <img src="logo.png" alt="Logo" class="repeating-logo">
-            <img src="logo.png" alt="Logo" class="repeating-logo">
-            <img src="logo.png" alt="Logo" class="repeating-logo">
-            <img src="logo.png" alt="Logo" class="repeating-logo">
-            <img src="logo.png" alt="Logo" class="repeating-logo">
-        </div>
-        <div class="centered-image">
-            <img src="photobook1.png" alt="Photo Book Image">
-            <div class="image-caption">
-                <div class="caption-left">[DROP 2]</div>
-                <div class="caption-right">[CLICK OR TAP TO SEE MORE]</div>
+        <div id="scroll-lock">
+            <div class="logo-pattern">
+                <img src="logo.png" alt="Logo" class="repeating-logo">
+                <img src="logo.png" alt="Logo" class="repeating-logo">
+                <img src="logo.png" alt="Logo" class="repeating-logo">
+                <img src="logo.png" alt="Logo" class="repeating-logo">
+                <img src="logo.png" alt="Logo" class="repeating-logo">
             </div>
+            <div class="centered-image">
+                <img src="photobook1.png" alt="Photo Book Image">
+                <div class="image-caption">
+                    <div class="caption-left">[DROP 2]</div>
+                    <div class="caption-right">[CLICK OR TAP TO SEE MORE]</div>
+                </div>
+            </div>
+            <div id="random-images-container"></div>
+            <button class="scroll-button">[CLICK OR TAP TO VIEW DROP 1]</button>
         </div>
-        <div id="random-images-container"></div>
+        <div id="scroll-target">
+            <div class="centered-image">
+                <img src="https://cdn.shopify.com/s/files/1/0727/6645/6022/files/Drop_1_photo_book_6.jpg?v=1743398521" alt="Photo Book Image">
+                <div class="image-caption">
+                    <div class="caption-left">[DROP 1]</div>
+                    <div class="caption-right">[CLICK OR TAP TO SEE MORE]</div>
+                </div>
+            </div>
+            <button class="scroll-button scroll-up">[CLICK OR TAP TO VIEW DROP 2]</button>
+        </div>
         <script src="app.js"></script>
     </body>
 </html>
