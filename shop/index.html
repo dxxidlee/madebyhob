@@ -3,10 +3,270 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>madebyhob</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="styles.css">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                background-image: url('homepage.jpg');
+                background-size: cover;
+                background-position: center;
+                min-height: 100vh;
+                position: relative;
+                overflow-x: hidden;
+            }
+
+            .marquee-container {
+                width: 100%;
+                background: white;
+                padding: 10px 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 2px solid #000;
+                position: fixed;
+                z-index: 2;
+            }
+
+            .logo {
+                font-size: 14px;
+                font-weight: 600;
+                letter-spacing: -0.03rem;
+                text-decoration: none;
+                color: #000;
+            }
+
+            .nav-items {
+                display: flex;
+                gap: 20px;
+            }
+
+            .nav-item {
+                font-size: 14px;
+                font-weight: 500;
+                letter-spacing: -0.03rem;
+                color: #000;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+            .nav-item:hover {
+                opacity: 0.7;
+            }
+
+            .logo-pattern {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 0;
+                z-index: 0;
+                width: 70%;
+                pointer-events: none;
+            }
+
+            .repeating-logo {
+                height: auto;
+                width: 30%;
+                object-fit: contain;
+                opacity: 1;
+            }
+
+            .marquee {
+                display: flex;
+                justify-content: flex-end;
+                padding-right: 20px;
+            }
+
+            .marquee-content {
+                white-space: nowrap;
+                font-size: 14px;
+                font-weight: 600;
+                letter-spacing: 1px;
+                color: #000;
+                text-transform: uppercase;
+            }
+
+            .products-container {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 100px;
+                padding: 50px 20px;
+                z-index: 1;
+                min-height: calc(100vh - 50px); /* Subtract marquee height */
+                margin-top: 40px; /* Add margin to account for marquee */
+            }
+
+            .product-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                position: relative;
+            }
+
+            .hover-box {
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 80%;
+                height: calc(100% - 50px);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+            .hover-box:hover {
+                opacity: 1;
+            }
+
+            .hover-image {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                z-index: -1;
+            }
+
+            .hover-text {
+                position: absolute;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 20px;
+                z-index: 1;
+            }
+
+            .hover-text div {
+                color: #000;
+                font-size: 14px;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: -0.03rem;
+                background: white;
+                padding: 10px 20px;
+                line-height: 1;
+            }
+
+            .product-item img {
+                max-width: 500px;
+                height: auto;
+                object-fit: contain;
+            }
+
+            .product-caption {
+                font-size: 14px;
+                font-weight: 600;
+                letter-spacing: -0.03rem;
+                color: #000;
+                text-transform: uppercase;
+                position: relative;
+                z-index: 1;
+            }
+
+            .product-caption a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            .product-caption a:hover {
+                opacity: 0.7;
+            }
+
+            .fallback-background {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                pointer-events: none;
+            }
+
+            .fallback-background img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+
+            @media screen and (max-width: 768px) {
+                .marquee-container {
+                    padding: 8px 12px;
+                }
+
+                .logo {
+                    font-size: 12px;
+                }
+
+                .nav-items {
+                    gap: 12px;
+                }
+
+                .nav-item {
+                    font-size: 12px;
+                }
+
+                .products-container {
+                    flex-direction: column;
+                    gap: 40px;
+                    padding: 20px;
+                    margin-top: 50px;
+                }
+
+                .product-item {
+                    width: 100%;
+                    max-width: 100%;
+                }
+
+                .product-item img {
+                    max-width: 100%;
+                    height: auto;
+                }
+
+                .hover-box {
+                    width: 90%;
+                }
+
+                .hover-text div {
+                    font-size: 12px;
+                    padding: 8px 16px;
+                }
+
+                .product-caption {
+                    font-size: 12px;
+                }
+            }
+
+            @media screen and (max-width: 480px) {
+                .products-container {
+                    gap: 30px;
+                    padding: 15px;
+                }
+
+                .hover-box {
+                    width: 95%;
+                }
+            }
+        </style>
     </head>
     <body>
         <div class="marquee-container">
@@ -35,7 +295,7 @@
                     </div>
                 </div>
                 <img src="pants.png" alt="Pants">
-                <div class="product-caption">[WF_002]</div>
+                <div class="product-caption"><a href="https://www.madebyhob.com/products/WF_002">[WF_002]</a></div>
             </div>
             <div class="product-item">
                 <div class="hover-box">
@@ -46,12 +306,11 @@
                     </div>
                 </div>
                 <img src="jacket.png" alt="Jacket">
-                <div class="product-caption">[WD_001]</div>
+                <div class="product-caption"><a href="https://www.madebyhob.com/products/WD_001">[WD_001]</a></div>
             </div>
         </div>
         <div class="fallback-background">
             <img src="homepage.jpg" alt="Background">
         </div>
-        <script src="app.js" async defer></script>
     </body>
 </html>
