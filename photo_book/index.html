@@ -6,6 +6,7 @@
         <title>madebyhob</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="logo.png">
         <style>
             * {
                 margin: 0;
@@ -380,6 +381,55 @@
                     padding: 3px 3px;
                 }
             }
+
+            .bottom-marquee-container {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: black;
+                overflow: hidden;
+                z-index: 10;
+                display: flex;
+            }
+
+            .bottom-marquee-content {
+                display: flex;
+                white-space: nowrap;
+                padding: 10px 0;
+                animation: marquee 20s linear infinite;
+                color: white;
+                font-size: 14px;
+                font-weight: 600;
+                letter-spacing: -0.03rem;
+                text-transform: uppercase;
+            }
+
+            .bottom-marquee-content a {
+                color: white;
+                text-decoration: none;
+                padding-right: 50px;
+            }
+
+            .bottom-marquee-container:hover .bottom-marquee-content {
+                animation-play-state: paused;
+            }
+
+            @keyframes marquee {
+                0% {
+                    transform: translate3d(0, 0, 0);
+                }
+                100% {
+                    transform: translate3d(-50%, 0, 0);
+                }
+            }
+
+            @media screen and (max-width: 768px) {
+                .bottom-marquee-content {
+                    font-size: 12px;
+                    padding: 8px 0;
+                }
+            }
         </style>
     </head>
     <body>
@@ -419,6 +469,18 @@
                 </div>
             </div>
             <button class="scroll-button scroll-up">[CLICK OR TAP TO VIEW DROP 2]</button>
+        </div>
+        <div class="bottom-marquee-container">
+            <div class="bottom-marquee-content">
+                <a href="https://www.madebyhob.com/products/jacquard-beanie">[JB_003] JACQUARD BEANIE RESTOCK CLICK TO PURCHASE</a>
+                <a href="https://www.madebyhob.com/products/jacquard-beanie">[JB_003] JACQUARD BEANIE RESTOCK CLICK TO PURCHASE</a>
+                <a href="https://www.madebyhob.com/products/jacquard-beanie">[JB_003] JACQUARD BEANIE RESTOCK CLICK TO PURCHASE</a>
+                <a href="https://www.madebyhob.com/products/jacquard-beanie">[JB_003] JACQUARD BEANIE RESTOCK CLICK TO PURCHASE</a>
+                <a href="https://www.madebyhob.com/products/jacquard-beanie">[JB_003] JACQUARD BEANIE RESTOCK CLICK TO PURCHASE</a>
+                <a href="https://www.madebyhob.com/products/jacquard-beanie">[JB_003] JACQUARD BEANIE RESTOCK CLICK TO PURCHASE</a>
+                <a href="https://www.madebyhob.com/products/jacquard-beanie">[JB_003] JACQUARD BEANIE RESTOCK CLICK TO PURCHASE</a>
+                <a href="https://www.madebyhob.com/products/jacquard-beanie">[JB_003] JACQUARD BEANIE RESTOCK CLICK TO PURCHASE</a>
+            </div>
         </div>
         <script>
             document.addEventListener('DOMContentLoaded', () => {
